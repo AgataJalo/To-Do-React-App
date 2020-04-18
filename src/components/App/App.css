@@ -1,4 +1,10 @@
-.App {
+.app {
+  box-sizing: border-box;
+  margin: 50px;
+  padding: 20px;
   text-align: center;
+  border: 1px solid white;
+  border-radius: 3%;
+  background-color: white;
 }
 
