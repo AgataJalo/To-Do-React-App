@@ -4,19 +4,29 @@ import './App.css';
 class App extends Component{
     constructor(props){
       super(props);
+
       this.state={
         newTask: '',
         list:[]
       }
     }
 
-  //   addTask(){
-  //   const listElement = document.createElement('li');
-  //   const inputValue = document.getElementsByClassName('main-input').value;
-  //   const text = document.createTextNode(inputValue);
-  //   listElement.appendChild(text);
-  // }
+  changeTask(input) {
+    this.setState({
+      newTask: input
+    });
+  } 
 
+  addElement(input){
+    let listArr = this.state.list;
+    listArr.push(input);
+
+    this.setState({
+      list: listArr,
+      newTask: ''  
+    })
+  }
+    
 
   render(){
     return(
@@ -26,13 +36,19 @@ class App extends Component{
       </div>
 
       <div className="addTask">
-        <input className="main-input" type="text" placeholder="Add task..." /*value={this.state.newTask} onChange={this.addTask()}*/></input>
-        <button /*onClick={}*/>Add</button>
+        <input 
+        className="main-input" 
+        type="text" 
+        placeholder="Add task..." 
+        value={this.state.newTask}
+        onChange={(e)=>this.changeTask(e.target.value)}
+        />
+        <button onClick={()=>this.addElement(this.state.newTask)}>Add</button>
       </div>
 
       <div className="list">
         <ul>
-          <li>Agata</li>
+    {this.state.list.map((value)=> <li>{value}</li>)}
         </ul>
       </div>
     </div>
