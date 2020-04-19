@@ -18,15 +18,28 @@ class App extends Component{
   } 
 
   addElement(input){
-    let listArr = this.state.list;
-    listArr.push(input);
+    const newTask ={
+      id: 1+ Math.random(),
+      value:this.state.list.slice()
+    }
+    //console.log(newTask.id)
+    let list= [...this.state.list]
+    list.push(input);
 
     this.setState({
-      list: listArr,
+      list: list,
       newTask: ''  
     })
   }
-    
+
+  removeElement(id){
+    const list =[...this.state.list];
+    const updatedList=list.filter(value => value.id !== id);
+
+    this.setState({
+      list :updatedList
+    })
+  }
 
   render(){
     return(
@@ -48,7 +61,9 @@ class App extends Component{
 
       <div className="list">
         <ul>
-    {this.state.list.map((value)=> <li>{value}</li>)}
+          {this.state.list.map((value,id)=> <li key={id}>{value}
+          <button onClick={()=>this.removeElement(value.id)}>Remove</button>
+          </li>)}
         </ul>
       </div>
     </div>
