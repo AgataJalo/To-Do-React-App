@@ -32,14 +32,16 @@ class App extends Component{
     })
   }
 
-  removeElement(id){
-    const list =[...this.state.list];
-    const updatedList=list.filter(value => value.id !== id);
-
+  removeElement = id =>{
+    const list =this.state.list.filter(item => {
+      return item.id !== id
+    });
+    
     this.setState({
-      list :updatedList
+    list
     })
   }
+
 
   render(){
     return(
@@ -61,10 +63,10 @@ class App extends Component{
 
       <div className="list">
         <ul>
-          {this.state.list.map((value,id)=> <li key={id}>{value}
-          <button onClick={()=>this.removeElement(value.id)}>Remove</button>
+          {this.state.list.map((item,id)=> <li key={id}>{item}
           </li>)}
         </ul>
+        <button onClick={()=>this.removeElement()}>Clear List!</button>
       </div>
     </div>
     )
