@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import swal from '@sweetalert/with-react'
+
 
 class App extends Component{
     constructor(props){
@@ -24,7 +26,14 @@ class App extends Component{
     }
     //console.log(newTask.id)
     let list= [...this.state.list]
-    list.push(input);
+    
+    if(input === ''){
+      
+      swal("Ouups...", "You have to write something, before adding!", "info");
+      
+    } else{
+      list.push(input);
+    }
 
     this.setState({
       list: list,
@@ -32,18 +41,31 @@ class App extends Component{
     })
   }
 
-  deleteItem(){
-
-  }
 
   clearList = id =>{
     const list =this.state.list.filter(item => {
       return item.id !== id
     });
-    
-    this.setState({
-    list
+
+    swal({
+      title: "Are you sure?",
+      text: "You delete all positions from the list.",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
     })
+    .then((willDelete) => {
+      if (willDelete) {
+        this.setState({
+          list
+          })
+        swal("You clear your list. Start a new one!", {
+          icon: "success",
+        });
+      } else {
+        swal("Back to your list");
+      }
+    });
   }
 
   deleteElement = (key) => {
