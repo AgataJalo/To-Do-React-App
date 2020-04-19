@@ -7,3 +7,25 @@
   border-radius: 3%;
   background-color: white;
 }
+.mainInput{
+  
+}
+.addBtn{
+  
+}
+
+.listElement {
+  list-style: none;
+}
+
+.deleteBtn{
+ 
+}
+
+.clearBtn{
+  
+}
+
+.clicked{
+  text-decoration: line-through;
+}
