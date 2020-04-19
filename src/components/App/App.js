@@ -20,7 +20,7 @@ class App extends Component{
   addElement(input){
     const newTask ={
       id: 1+ Math.random(),
-      value:this.state.list.slice()
+      value:this.state.list
     }
     //console.log(newTask.id)
     let list= [...this.state.list]
@@ -32,7 +32,11 @@ class App extends Component{
     })
   }
 
-  removeElement = id =>{
+  deleteItem(){
+
+  }
+
+  clearList = id =>{
     const list =this.state.list.filter(item => {
       return item.id !== id
     });
@@ -42,6 +46,14 @@ class App extends Component{
     })
   }
 
+  deleteElement = (key) => {
+    const list = this.state.list;
+    list.splice(key, 1);
+    
+    this.setState({ 
+      list: list 
+    })
+  }
 
   render(){
     return(
@@ -64,9 +76,11 @@ class App extends Component{
       <div className="list">
         <ul>
           {this.state.list.map((item,id)=> <li key={id}>{item}
-          </li>)}
+          <button onClick={()=>this.deleteElement()}>X</button>
+          </li>
+          )}
         </ul>
-        <button onClick={()=>this.removeElement()}>Clear List!</button>
+        <button onClick={()=>this.clearList()}>Clear List!</button>
       </div>
     </div>
     )
