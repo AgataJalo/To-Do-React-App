@@ -2,15 +2,27 @@
   border:none;
   text-align: center;
 }
-.addBtn{
+.bodyList{
+  
+ 
+}
+.Btn{
   border: 1px solid white;
-  background-color: #009efd;
-  color:white;
   border-radius: 100%;
   width: 25px;
   height: 25px;
   margin:5px;
+  cursor: pointer;
+  color:white;
 }
+.addBtn{
+  background-color: #009efd;
+}
+
+.deleteBtn{
+  background-color:#e64942;
+}
+
 .ulList{
   display:flex;
   flex-direction: column;
@@ -28,15 +40,6 @@
 .textSpan{
   margin:2px;
 }
-.deleteBtn{
-  border: 1px solid white;
-  background-color:#e64942;
-  color:white;
-  border-radius: 100%;
-  width: 25px;
-  height: 25px;
-  margin:5px;
-}
 
 .clearBtn{
   background-color: white;
@@ -44,5 +47,19 @@
   color:#2af598;
   padding:10px;
   margin-top:50px;
+  cursor: pointer;
+  transition: 0.5s;
+  font-weight: bold;
 }
- 
+
+.clearBtn:hover{
+  background-color: #2af598;
+  color:white;
+} 
+
+.clearBtn:focus,
+.deleteBtn:focus,
+.addBtn:focus,
+.mainInput:focus{
+  outline:none;
+}

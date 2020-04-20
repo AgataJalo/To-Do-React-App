@@ -78,7 +78,7 @@ class List extends Component{
   render(){
     return(
     <div className="bodyList">
-      <h3>My list</h3>
+      <h2>My list</h2>
       <div className="addTask">
         <input 
         className="mainInput" 
@@ -87,13 +87,13 @@ class List extends Component{
         value={this.state.newTask}
         onChange={(e)=>this.changeTask(e.target.value)}
         />
-        <button className ="addBtn" onClick={()=>this.addElement(this.state.newTask)}>+</button>
+        <button className ="addBtn Btn" onClick={()=>this.addElement(this.state.newTask)}>+</button>
       </div>
 
       <div className="list">
         <ul className="ulList">
           {this.state.list.map((item,id)=> <li className="listElement"key={id}><span className="textSpan">{item}</span>
-          <button className="deleteBtn" onClick={()=>this.deleteElement()}><span>x</span></button>
+          <button className="deleteBtn Btn" onClick={()=>this.deleteElement()}><span>x</span></button>
           </li>
           )}
         </ul>
