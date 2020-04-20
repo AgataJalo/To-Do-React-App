@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import swal from '@sweetalert/with-react'
+import swal from '@sweetalert/with-react';
+import './list.css'
 
 class List extends Component{
     constructor(props){
@@ -78,6 +79,7 @@ class List extends Component{
     return(
     <div className="bodyList">
       <div className="addTask">
+          <h3>My list:</h3>
         <input 
         className="mainInput" 
         type="text" 
@@ -85,13 +87,13 @@ class List extends Component{
         value={this.state.newTask}
         onChange={(e)=>this.changeTask(e.target.value)}
         />
-        <button className ="addBtn" onClick={()=>this.addElement(this.state.newTask)}>Add</button>
+        <button className ="addBtn" onClick={()=>this.addElement(this.state.newTask)}>+</button>
       </div>
 
       <div className="list">
-        <ul>
+        <ul className="ulList">
           {this.state.list.map((item,id)=> <li className="listElement"key={id}>{item}
-          <button className="deleteBtn" onClick={()=>this.deleteElement()}>X</button>
+          <button className="deleteBtn" onClick={()=>this.deleteElement()}>+</button>
           </li>
           )}
         </ul>
