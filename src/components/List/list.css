@@ -1,11 +1,19 @@
 .mainInput{
   border:none;
   text-align: center;
-}
-.bodyList{
   
+}
+
+.mainInput:hover{
  
 }
+
+h2 {
+  font-family:'Caveat', cursive;
+  margin:50px;
+  position: relative;
+}
+
 .Btn{
   border: 1px solid white;
   border-radius: 100%;
@@ -14,6 +22,10 @@
   margin:5px;
   cursor: pointer;
   color:white;
+}
+
+.Btn:active{
+  transform: translateY(2px);
 }
 .addBtn{
   background-color: #009efd;
@@ -35,6 +47,13 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  animation-name: listElements;
+  animation-duration: 0.5s;
+}
+
+@keyframes listElements {
+  0%   {color: white;}
+  100% {color: black;}
 }
 
 .textSpan{
@@ -42,11 +61,13 @@
 }
 
 .clearBtn{
-  background-color: white;
-  border: 1px solid #2af598;
+  font-family:'Caveat', cursive;
+  font-size: 20px;
+  background-color: #2af598;
+  border: 1px solid white;
   border-radius: 5px;
-  color:#2af598;
-  padding:5px;
+  color: white;
+  padding:10px;
   margin-top:50px;
   cursor: pointer;
   transition: 0.5s;
@@ -70,7 +91,7 @@
   display: block;
   position:absolute;
   top:0;
-  left: -59px;
+  left: -61px;
   transform: skewX(-45deg) translateX(0px);
   transition: none;
 }
@@ -79,9 +100,6 @@
   transform: skewX(-40deg) translateX(199px);
   transition: all 0.3s ease-in;
 }  
-
-
-
 
 .clearBtn:focus,
 .deleteBtn:focus,

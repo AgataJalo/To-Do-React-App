@@ -97,7 +97,7 @@ class List extends Component{
           </li>
           )}
         </ul>
-        <button className= "clearBtn" onClick={()=>this.clearList()}>Clear List!</button>
+        <button className= "clearBtn" onClick={()=>this.clearList()}>Clear!</button>
       </div>
     </div>
     )
