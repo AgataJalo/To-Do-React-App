@@ -25,7 +25,7 @@ class Clock extends Component {
     render() {
         return (
             <div className="dateClock">
-                <p>Today is: {this.state.date.toLocaleDateString()}</p>
+                <p>Date: {this.state.date.toLocaleDateString()}</p>
                 <p>Time: {this.state.date.toLocaleTimeString()}</p>
             </div>
         )

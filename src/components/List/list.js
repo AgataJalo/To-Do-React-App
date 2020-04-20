@@ -78,8 +78,8 @@ class List extends Component{
   render(){
     return(
     <div className="bodyList">
+      <h3>My list</h3>
       <div className="addTask">
-          <h3>My list:</h3>
         <input 
         className="mainInput" 
         type="text" 
@@ -92,8 +92,8 @@ class List extends Component{
 
       <div className="list">
         <ul className="ulList">
-          {this.state.list.map((item,id)=> <li className="listElement"key={id}>{item}
-          <button className="deleteBtn" onClick={()=>this.deleteElement()}>+</button>
+          {this.state.list.map((item,id)=> <li className="listElement"key={id}><span className="textSpan">{item}</span>
+          <button className="deleteBtn" onClick={()=>this.deleteElement()}><span>x</span></button>
           </li>
           )}
         </ul>
