@@ -44,18 +44,44 @@
 .clearBtn{
   background-color: white;
   border: 1px solid #2af598;
+  border-radius: 5px;
   color:#2af598;
-  padding:10px;
+  padding:5px;
   margin-top:50px;
   cursor: pointer;
   transition: 0.5s;
   font-weight: bold;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
 }
 
 .clearBtn:hover{
   background-color: #2af598;
   color:white;
-} 
+}
+
+
+.clearBtn:before{
+  content: "";
+  height: 100%;
+  width:40px;
+  background-color: white;
+  display: block;
+  position:absolute;
+  top:0;
+  left: -59px;
+  transform: skewX(-45deg) translateX(0px);
+  transition: none;
+}
+
+.clearBtn:hover:before{
+  transform: skewX(-40deg) translateX(199px);
+  transition: all 0.3s ease-in;
+}  
+
+
+
 
 .clearBtn:focus,
 .deleteBtn:focus,
