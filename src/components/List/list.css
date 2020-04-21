@@ -56,9 +56,6 @@ h2 {
   100% {color: black;}
 }
 
-.textSpan{
-  margin:2px;
-}
 
 .clearBtn{
   font-family:'Caveat', cursive;
@@ -88,6 +85,7 @@ h2 {
   height: 100%;
   width:40px;
   background-color: white;
+  opacity: 0.6;
   display: block;
   position:absolute;
   top:0;
@@ -106,4 +104,12 @@ h2 {
 .addBtn:focus,
 .mainInput:focus{
   outline:none;
+}
+
+.doneBtn{
+  align-self: flex-end;
+}
+
+.textSpan{
+  color:blue;
 }

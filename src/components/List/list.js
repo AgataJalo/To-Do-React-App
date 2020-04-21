@@ -5,13 +5,14 @@ import './list.css'
 class List extends Component{
     constructor(props){
       super(props);
-
+      
       this.state={
         newTask: '',
-        list:[]
+        list:[],
       }
     }
 
+ 
   changeTask(input) {
     this.setState({
       newTask: input
@@ -39,7 +40,6 @@ class List extends Component{
       newTask: ''  
     })
   }
-
 
   clearList = id =>{
     const list =this.state.list.filter(item => {
@@ -75,6 +75,7 @@ class List extends Component{
       list: list 
     })
   }
+
   render(){
     return(
     <div className="bodyList">
@@ -92,7 +93,7 @@ class List extends Component{
 
       <div className="list">
         <ul className="ulList">
-          {this.state.list.map((item,id)=> <li className="listElement"key={id}><span className="textSpan">{item}</span>
+    {this.state.list.map((item,id)=> <li className="listElement" key={id}>{item}
           <button className="deleteBtn Btn" onClick={()=>this.deleteElement()}><span>x</span></button>
           </li>
           )}
