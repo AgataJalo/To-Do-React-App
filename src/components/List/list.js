@@ -9,9 +9,23 @@ class List extends Component{
       this.state={
         newTask: '',
         list:[],
+        done:false
       }
+
+      this.toggleClass= this.toggleClass.bind(this);
+
     }
 
+  toggleClass () {
+    const prevState = this.state.done;
+    this.setState({
+      done: !prevState
+    })
+  }
+
+  /*className={this.state.done ? 'toggle': null} 
+                onClick={this.toggleClass}  */
+    
  
   changeTask(input) {
     this.setState({
@@ -34,6 +48,8 @@ class List extends Component{
     } else{
       list.push(input);
     }
+
+
 
     this.setState({
       list: list,
@@ -93,7 +109,7 @@ class List extends Component{
 
       <div className="list">
         <ul className="ulList">
-    {this.state.list.map((item,id)=> <li className="listElement" key={id}>{item}
+    {this.state.list.map((item,id)=> <li className="listElement"  key={id}>{item}
           <button className="deleteBtn Btn" onClick={()=>this.deleteElement()}><span>x</span></button>
           </li>
           )}
