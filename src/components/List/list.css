@@ -49,6 +49,7 @@ h2 {
   align-items: center;
   animation-name: listElements;
   animation-duration: 0.5s;
+  cursor: pointer;
 }
 
 @keyframes listElements {
@@ -111,5 +112,5 @@ h2 {
 }
 
 .toggle{
-  color:blue;
+  text-decoration: line-through;
 }

@@ -9,23 +9,21 @@ class List extends Component{
       this.state={
         newTask: '',
         list:[],
-        done:false
+        idCounter:0
       }
 
       this.toggleClass= this.toggleClass.bind(this);
-
+      console.log(this.state)
     }
 
-  toggleClass () {
-    const prevState = this.state.done;
+  toggleClass (id) {
+    const itemToChange = this.state.list.find(item => item.id == id)
+    itemToChange.done = !itemToChange.done
     this.setState({
-      done: !prevState
+      list: this.state.list
     })
   }
 
-  /*className={this.state.done ? 'toggle': null} 
-                onClick={this.toggleClass}  */
-    
  
   changeTask(input) {
     this.setState({
@@ -34,11 +32,6 @@ class List extends Component{
   } 
 
   addElement(input){
-    const newTask ={
-      id: 1+ Math.random(),
-      value:this.state.list
-    }
-    //console.log(newTask.id)
     let list= [...this.state.list]
     
     if(input === ''){
@@ -46,22 +39,21 @@ class List extends Component{
       swal("Ouups...", "You have to write something, before adding!", "info");
       
     } else{
-      list.push(input);
+      list.push({
+        id: this.state.idCounter,
+        value:input,
+        done: false
+      });
     }
-
-
-
     this.setState({
       list: list,
-      newTask: ''  
+      newTask: '',
+      idCounter: this.state.idCounter + 1
     })
+    
   }
 
-  clearList = id =>{
-    const list =this.state.list.filter(item => {
-      return item.id !== id
-    });
-
+  clearList(){
     swal({
       title: "Are you sure?",
       text: "You delete all positions from the list.",
@@ -72,7 +64,7 @@ class List extends Component{
     .then((willDelete) => {
       if (willDelete) {
         this.setState({
-          list
+          list:[]
           })
         swal("You clear your list. Start a new one!", {
           icon: "success",
@@ -97,7 +89,8 @@ class List extends Component{
     <div className="bodyList">
       <h2>My list</h2>
       <div className="addTask">
-        <input 
+        <input
+        id="newTaskInput"
         className="mainInput" 
         type="text" 
         placeholder="Add task..." 
@@ -109,7 +102,9 @@ class List extends Component{
 
       <div className="list">
         <ul className="ulList">
-    {this.state.list.map((item,id)=> <li className="listElement"  key={id}>{item}
+    {this.state.list.map((item,id)=> <li className="listElement"  key={id}>
+      <div className={item.done ? 'toggle': null} onClick={()=>this.toggleClass(item.id)}>{item.value}</div>
+
           <button className="deleteBtn Btn" onClick={()=>this.deleteElement()}><span>x</span></button>
           </li>
           )}
